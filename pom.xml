@@ -60,6 +60,8 @@
 	<url>http://maven.apache.org</url>
 	
 	<properties>
+		<maven.compiler.source>17</maven.compiler.source>
+                <maven.compiler.target>17</maven.compiler.target>
 		<docker.image.prefix>kammana</docker.image.prefix>
 		<sonar.host.url>http://18.181.164.81:9000/</sonar.host.url>
 
@@ -97,17 +99,31 @@
 	</pluginRepositories>
 
 	<build>
-    <plugins>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-war-plugin</artifactId>
-            <version>3.3.1</version> <!-- Use the latest compatible version -->
-            <configuration>
-                <failOnMissingWebXml>false</failOnMissingWebXml>
-            </configuration>
-        </plugin>
-    </plugins>
-</build>
+        <plugins>
+            <!-- Compiler plugin for Java 17 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version> <!-- Use a compatible version -->
+                <configuration>
+                    <source>17</source>
+                    <target>17</target>
+                </configuration>
+            </plugin>
+
+            <!-- WAR Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.1</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+
+            <!-- Additional plugins can go here -->
+        </plugins>
+    </build>
 
 	
 </project>
