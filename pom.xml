@@ -92,9 +92,22 @@
 	    <pluginRepository>    
 		<id>maven1</id>
 		<name>Maven.org</name>
-		<url>http://repo1.maven.org/maven2</url>
+		<url>https://repo.maven.apache.org/maven2</url>
 	    </pluginRepository>
 	</pluginRepositories>
+
+	<build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>3.3.1</version> <!-- Use the latest compatible version -->
+            <configuration>
+                <failOnMissingWebXml>false</failOnMissingWebXml>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
 
 	
 </project>
